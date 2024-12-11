@@ -10,7 +10,7 @@
     <input type="number" name="price" step="0.01" required>
 
     <label for="image">Image:</label>
-    <input type="file" name="image" accept="image/*" required>
+    <input type="file" name="image_path" accept="image/*" required>
 
     <button type="submit">Ajouter le produit</button>
 </form>

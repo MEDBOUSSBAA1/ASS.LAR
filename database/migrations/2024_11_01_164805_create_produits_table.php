@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('produits', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nom');
             $table->text('description');
-            $table->decimal('price', 8, 2);
+            $table->decimal('prix', 8, 2);
             $table->string('image_path')->nullable();
             $table->timestamps();
         });
