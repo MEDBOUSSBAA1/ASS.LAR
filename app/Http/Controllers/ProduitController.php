@@ -109,4 +109,9 @@ class ProduitController extends Controller
 
         return response(["produits"=>Produit::all()]);
     }
+    public function productbyid(Request $request){
+        
+        $pro=Produit::find($request->ids);
+        return response()->json(["produits"=>$pro]);
+    }
 }
