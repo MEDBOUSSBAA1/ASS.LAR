@@ -8,7 +8,6 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-
 Route::post("produit/store",[App\Http\Controllers\ProduitController::class,"store"]);
 Route::get("produits",[App\Http\Controllers\ProduitController::class,"index"]);
 
@@ -17,4 +16,8 @@ Route::post("produit/update/{id}",[App\Http\Controllers\ProduitController::class
 Route::delete("produit/delete/{id}",[App\Http\Controllers\ProduitController::class,"destroy"]);
 Route::post("produits/get",[App\Http\Controllers\ProduitController::class,"productbyid"]);
 
+// les route de l'authentification
 
+Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login']);
+Route::post('/register', [\App\Http\Controllers\AuthController::class, 'register']);
+Route::post('/logout', [\App\Http\Controllers\AuthController::class, 'logout']);
