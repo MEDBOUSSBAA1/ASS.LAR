@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+
 
 
 class AuthController extends Controller
@@ -19,6 +21,11 @@ class AuthController extends Controller
             'password'=>'required|string|min:8|confirmed',
 
         ]);
+        if ($request->fails()) {
+            return response()->json([
+                'errors' => $request->errors(),
+            ], 422);
+        }
         $user=User::create([
             'name'=>$request->name,
             'email'=>$request->email,
